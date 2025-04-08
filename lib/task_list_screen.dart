@@ -14,6 +14,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
   final userId = FirebaseAuth.instance.currentUser!.uid;
   final tasksRef = FirebaseFirestore.instance.collection('tasks');
 
+  // Add a new task to Firestore
   Future<void> _addTask(String taskName) async {
     if (taskName.trim().isEmpty) return;
     await tasksRef.add({
@@ -131,6 +132,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
   }
 }
 
+// Dialog to add a subtask
 class _AddSubtaskDialog extends StatefulWidget {
   final void Function(String day, String timeSlot, String detail) onSave;
 
